@@ -10,7 +10,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#5a1e96",
+      main: "#ed5f00",
     },
     secondary: {
       main: "#fc0303",
@@ -23,6 +23,7 @@ const theme = createTheme({
     MuiButton:{
       styleOverrides:{
         root:{
+          color:"#fff",
          '&:focus':{
            outline:'none'
          }

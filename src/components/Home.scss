@@ -1,1 +1,30 @@
 @import "../App.scss";
+
+.center{
+    text-align: center;
+}
+
+.heading{
+    font-size: 5em;
+    font-weight: 700;
+    color: $primaryColor;
+}
+
+.pet{
+    
+    height: 40vh;
+    width: 50vh;
+}
+
+.section-1{
+    background-image: url("../Images/Web\ 1920\ –\ 1.svg");
+    background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+    p{
+        margin:0 20%;
+        line-height: 2;
+        color: #727272;
+        font-size: 1.25em;
+    }
+}
