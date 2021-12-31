@@ -1,0 +1,51 @@
+@import  "../../App.scss";
+
+.signup-section{
+    .row{
+        height: 70vh;
+        margin: 3% 25%;
+        text-align: center;
+        padding:2%;
+        .imagesect{
+            .fishbowl{
+            height: 30vh;
+            width: 20vw;
+            
+            }
+        }
+        .formsect{
+            h1{
+                font-size: 3em;
+            }
+            .button{
+                margin: 8% 0;
+            }
+            .textfield{
+                margin: 2% 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+.signup-section{
+    .row{
+        height: 100%;
+        margin: 2% 10%;
+        padding-bottom: 15%;
+        .imagesect{
+            .fishbowl{
+                height: 30vh;
+                width: 20vh;
+            }
+        }
+    }
+}
+}
