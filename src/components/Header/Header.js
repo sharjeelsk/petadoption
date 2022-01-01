@@ -35,10 +35,10 @@ console.log(props);
 			<li className="nav-item">
 			{props.userToken?
 			<Link  className="nav-link active" to="/dashboard">
-				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large" className="btn-purple">dashboard</Button>
+				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large" className="secondfont btn-purple">dashboard</Button>
 				</Link>:
 			<Link  className="nav-link"  to="/signup">
-				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large"  className="btn-purple">SignUp</Button>
+				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large"  className="secondfont btn-purple">SignUp</Button>
 				</Link>}
 			</li>
 			

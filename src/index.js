@@ -8,6 +8,13 @@ import { createTheme,ThemeProvider } from '@mui/material/styles';
 import { PersistGate } from 'redux-persist/integration/react'
 
 const theme = createTheme({
+  typography: {
+    "fontFamily": `"Handlee", "Sacramento", "Arial", sans-serif`,
+    "fontSize": 14,
+    "fontWeightLight": 500,
+    "fontWeightRegular": 500,
+    "fontWeightMedium": 700
+   },
   palette: {
     primary: {
       main: "#ed5f00",
@@ -27,9 +34,16 @@ const theme = createTheme({
          '&:focus':{
            outline:'none'
          }
+        },
+        text:{
+          color:"#ed5f00",
+          '&:focus':{
+            outline:'none'
+          }
         }
       }
     },
+    
     MuiIconButton:{
       styleOverrides:{
         root:{

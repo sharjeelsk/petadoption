@@ -8,14 +8,19 @@ $green:#13a100;
 $purple:#ed5f00;
 
 $primary-font:'Montserrat', sans-serif;
-$secondary-font:'Roboto', sans-serif;
+$secondary-font:'Handlee', cursive;
 h1,h2,h3,h5{
   font-family: 'Sacramento', cursive;
 
 }
-p{
+p,a,blockquote{
   font-family: 'Handlee', cursive;
   font-weight: 400;
+}
+
+.secondfont{
+  font-family: 'Handlee', cursive !important;
+  font-weight: 500;
 }
 
 .submit{

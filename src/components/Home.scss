@@ -7,7 +7,10 @@
 .heading{
     font-size: 5em;
     font-weight: 700;
-    color: $primaryColor;
+    background: -webkit-linear-gradient($primaryColor, #943a05);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 2%;
 }
 
 .pet{
@@ -20,11 +23,128 @@
     background-image: url("../Images/Web\ 1920\ –\ 1.svg");
     background-size: cover;
 background-position: center center;
-background-attachment: fixed;
     p{
         margin:0 20%;
         line-height: 2;
         color: #727272;
         font-size: 1.25em;
     }
+}
+
+.section-2{
+    background-image: url("../Images/Web\ 1920\ –\ 2.svg");
+    height: 100vh;
+    background-size: cover;
+background-position: center center;
+h1{
+    background: -webkit-linear-gradient($primaryColor, #943a05);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+}
+.row{
+    margin:0 15%;
+}
+.circle{
+    background-color: #f8c5923b;
+    padding:5% 3%;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 1px 1px 30px #f8c5923b;
+    p{
+        color: rgb(94, 94, 94);
+    }
+}
+}
+
+
+.section-3{
+    h1{
+        font-size: 4em;
+        text-align: center;
+    }
+    .svg{
+        height: 25vh;
+        width: 20vw;
+    }
+    .row{
+        margin:1% 15%;
+    }
+    .col-xl-6{
+        margin:4% auto;
+    }
+    .head{
+        font-weight: bolder;
+        font-size: 1.25em;
+    }
+}
+
+.section-4{
+    h1{
+        text-align: center;
+        font-size: 4em;
+    }
+    .row{
+        margin: 4% 10%;
+        .svg{
+            height: 20vh;
+            width: 20vw;
+        }
+        .card{
+            background-color: #ed5f0017;
+            padding:2%;
+            text-align: center;
+            border: none;
+            border-radius: 15px;
+        }
+        p{
+            margin-top: 5%;
+        }
+    }
+}
+
+.endquote{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 10% 0;
+    .btn{
+        display: block;
+        margin: 2% auto;
+    }
+
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+.heading{
+    font-size: 3em;
+}
+.pet{
+    height: 20vh;
+    width: 100vw;
+}
+.section-2{
+    height: 100%;
+h1{
+    background: -webkit-linear-gradient($primaryColor, #943a05);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3em;
+}
+.row{
+    margin:3% 10%;
+}
+.circle{
+    padding:7% 20%;
+    margin: 5%;
+
+}
+}
 }

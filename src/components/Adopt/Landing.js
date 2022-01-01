@@ -14,7 +14,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const actions = [
     { icon: <AddIcon />, name: 'Add',route:"addpet" },
-    { icon: <MailIcon />, name: 'Requests',route:"requestpet" },
+    { icon: <MailIcon />, name: 'Requests',route:"petrequests" },
     { icon: <AccountCircleIcon />, name: 'Profile',route:"profile" },
   ];
 function Landing(props) {

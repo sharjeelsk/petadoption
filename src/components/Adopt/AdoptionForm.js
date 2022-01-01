@@ -10,6 +10,8 @@ import Button from '@mui/material/Button'
 import { styled } from '@mui/material/styles';
 import { useForm } from 'react-hook-form';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 const Input = styled('input')({
     display: 'none',
   });
@@ -46,9 +48,11 @@ function AdoptionForm() {
             <TextField {...register('age',{required:true})} className="textfield" id="standard-basic" fullWidth label="Age" variant="standard" />
             
             {!Array.isArray(selectedImage)?(
-        <div className="row">
+        <div className="my-3 row justify-content-center">
         <img alt="not fount" width={"250px"} src={URL.createObjectURL(selectedImage)} />
-        <button onClick={()=>setSelectedImage(null)}>Remove</button>
+        <IconButton onClick={()=>setSelectedImage([])} aria-label="delete" size="small" color='error'>
+        <DeleteIcon fontSize="inherit" />
+      </IconButton>
         </div>
       ):null}
 
