@@ -37,8 +37,8 @@ console.log(props);
 			<Link  className="nav-link active" to="/dashboard">
 				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large" className="secondfont btn-purple">dashboard</Button>
 				</Link>:
-			<Link  className="nav-link"  to="/signup">
-				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large"  className="secondfont btn-purple">SignUp</Button>
+			<Link  className="nav-link"  to="/signin">
+				<Button sx={{fontSize:"1.1rem"}} variant="contained" size="large"  className="secondfont btn-purple">Sign In</Button>
 				</Link>}
 			</li>
 			

@@ -14,11 +14,42 @@
             text-align: center;
             img{
                 border-radius: 10px;
+                width: 18vw;
+                height: 30vh;
             }
-            h2{
+            .heading{
                 font-family: $secondary-font;
                 font-weight: 400;
+                font-size: 2em;
+            }
+            .category{
+                font-size: 1.2em;
+            }
+            .breed{
+                font-size: 1.2em;
+                color: #a1a1a1;
             }
         }
+        .pet-card:hover{
+            background-color: #ed5f002f;
+            transition: .2s;
+        }
+    }
+ 
+}
+
+.modal-card{
+
+    text-align: center;
+    h1{
+        font-size: 2.8em;
+    }
+    img{
+        border-radius: 10px;
+        width: 18vw;
+        height: 30vh;
+    }
+    .row{
+        margin: 2% 10%;
     }
 }

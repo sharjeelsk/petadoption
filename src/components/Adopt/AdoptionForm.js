@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import axios from 'axios'
 const Input = styled('input')({
     display: 'none',
   });
@@ -21,6 +22,13 @@ function AdoptionForm() {
     const [selectedImage,setSelectedImage]=React.useState([])
     const onSubmit = (data)=>{
         console.log(data);
+        axios.post('/api/pet/create-pet')
+        .then(res=>{
+          console.log(res)
+        })
+        .catch(err=>{
+          console.log(err)
+        })
     }
     React.useEffect(()=>{
 

@@ -11,6 +11,7 @@ import Button from '@mui/material/Button'
 import {ReactComponent as PlayingFetch} from '../Images/undraw_playing_fetch_cm19.svg'
 import {ReactComponent as Notify} from '../Images/undraw_notify_re_65on.svg'
 import Footer from './Footer/Footer'
+import PetsRoundedIcon from '@mui/icons-material/PetsRounded';
 
 function Home() {
     return (
@@ -125,8 +126,8 @@ function Home() {
 
 
             <blockquote className="endquote">
-            Ready to get started? Begin with adoption application process today
-            <Button className="btn">SignUp</Button>
+            Ready to get started? Begin with adoption application process today<br />
+            <Button className="btn" endIcon={<PetsRoundedIcon />} variant="contained" >SignUp</Button>
             </blockquote>
 
         <Footer />
