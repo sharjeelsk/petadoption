@@ -102,7 +102,7 @@ console.log(open);
                 <p><b>Breed</b></p>
                 <p>{selectedData.breed}</p>
                 </div>
-                {selectedData.owner!==props.user.userInfo._id?<Button onClick={()=>handleAdoption()} variant="contained">Request Adoption</Button>:null}
+                {props.user.userInfo?(selectedData.owner!==props.user.userInfo._id?<Button onClick={()=>handleAdoption()} variant="contained">Request Adoption</Button>:null):null}
               </section>}
               />
           

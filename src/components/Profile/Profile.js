@@ -7,9 +7,17 @@ import Tooltip from '@mui/material/Tooltip';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
+import {setUser,storeUserInfo} from '../redux/user/userActions'
 function Profile(props) {
     console.log(props.user.userInfo)
     let user = props.user.userInfo;
+
+    const handleLogout = ()=>{
+        props.setUser(null)
+        props.storeUserInfo(null)
+        props.history.push("/")
+    }
+
     return (
         <div className="profile-head">
             <h1 className="heading center">Profile</h1>
@@ -33,6 +41,7 @@ function Profile(props) {
 			<div style={{position:"fixed",bottom:"5%",right:"5%"}}>
 			<Tooltip title="Logout">
               <Fab 
+              onClick={()=>handleLogout()}
                color="primary" variant="extended">
                 Logout
                 <LoginRoundedIcon sx={{ ml: 1 }} />
@@ -58,4 +67,11 @@ const mapStateToProps =({EventUser})=>{
     }
 }
 
-export default connect(mapStateToProps)(Profile)
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        setUser:(user)=>dispatch(setUser(user)),
+        storeUserInfo:(user)=>dispatch(storeUserInfo(user))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Profile)

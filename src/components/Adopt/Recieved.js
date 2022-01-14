@@ -17,9 +17,9 @@ function Recieved(props) {
 
     const renderContent = (item)=>{
         if(item.status==="Pending"){
-            return <p>{item.owner} hasn't accepted your request for <b>{item.pet.name}'s</b> adoption </p>
+            return <p>{item.owner.name} hasn't accepted your request for <b>{item.pet.name}'s</b> adoption </p>
         }else{
-            return <p>{item.owner} has <b>{item.status}</b> your request for <b>{item.pet.name}'s</b> adoption</p>
+            return <p>{item.owner.name} has <b>{item.status}</b> your request for <b>{item.pet.name}'s</b> adoption</p>
         }
     }
 
