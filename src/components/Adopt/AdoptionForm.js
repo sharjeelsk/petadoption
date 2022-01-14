@@ -12,30 +12,57 @@ import { useForm } from 'react-hook-form';
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import {connect} from 'react-redux'
+import SimpleBackdrop from '../utils/SimpleBackdrop';
 import axios from 'axios'
 const Input = styled('input')({
     display: 'none',
   });
-function AdoptionForm() {
+function AdoptionForm(props) {
     
     const {handleSubmit,formState:{errors},register}=useForm()
     const [selectedImage,setSelectedImage]=React.useState([])
-    const onSubmit = (data)=>{
-        console.log(data);
-        axios.post('/api/pet/create-pet')
-        .then(res=>{
-          console.log(res)
+    const [value, setValue] = React.useState('female');
+    const [loading,setLoading]=React.useState(false)
+
+    const onSubmit = (fdata)=>{
+      setLoading(true)
+        console.log(fdata);
+        var data = new FormData();
+        data.append('name', fdata.name);
+        data.append('gender', value);
+        data.append('category', fdata.category);
+        data.append('breed', fdata.breed);
+        data.append('age', fdata.age);
+        data.append('image', selectedImage);
+        
+        var config = {
+          method: 'post',
+          url: '/api/pet/create-pet',
+          headers: { 
+            'token': props.user.user, 
+          },
+          data : data
+        };
+        
+        axios(config)
+        .then(function (response) {
+          setLoading(false)
+          console.log(response)
+          props.history.push('/landing')
         })
-        .catch(err=>{
-          console.log(err)
-        })
+        .catch(function (error) {
+          setLoading(false)
+          console.log(error);
+        });
+        
     }
     React.useEffect(()=>{
 
     },[selectedImage])
-    console.log(Array.isArray(selectedImage));
     return (
         <div className="adoption-head">
+          <SimpleBackdrop open={loading} />
             <form className="shadow form-section" onSubmit={handleSubmit(onSubmit)}>
             <h1>Add Pet</h1>
             <TextField {...register('name',{required:true})} className="textfield" id="standard-basic" fullWidth label="Pet Name" variant="standard" />
@@ -44,10 +71,13 @@ function AdoptionForm() {
             <div className="d-flex justify-content-center">
             <FormControl className="mt-4" component="fieldset">
              <FormLabel component="legend">Gender</FormLabel>
-            <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
+            <RadioGroup 
+            
+            value={value}
+        onChange={(e)=>setValue(e.target.value)}
+            row aria-label="gender" name="row-radio-buttons-group">
                 <FormControlLabel value="female" control={<Radio />} label="Female" />
                 <FormControlLabel value="male" control={<Radio />} label="Male" />
-                <FormControlLabel value="other" control={<Radio />} label="Other" />
              </RadioGroup>
             </FormControl>
             </div>
@@ -88,4 +118,10 @@ function AdoptionForm() {
     )
 }
 
-export default AdoptionForm
+const mapStateToProps = ({EventUser})=>{
+return {
+  user:EventUser
+}
+}
+
+export default connect(mapStateToProps)(AdoptionForm)

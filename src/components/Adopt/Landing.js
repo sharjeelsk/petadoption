@@ -16,8 +16,11 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import Modal from '../utils/Modal'
 import Button from '@mui/material/Button'
+import { storeUserInfo } from '../redux/user/userActions';
+import SimpleBackdrop from '../utils/SimpleBackdrop';
 const actions = [
     { icon: <AddIcon />, name: 'Add',route:"addpet" },
+    { icon: <FileCopyIcon />, name: 'Recieved',route:"recieved" },
     { icon: <MailIcon />, name: 'Requests',route:"petrequests" },
     { icon: <AccountCircleIcon />, name: 'Profile',route:"profile" },
   ];
@@ -25,23 +28,52 @@ function Landing(props) {
   const [data,setData]=React.useState([])
   const [selectedData,setSelectedData]=React.useState({})
   const [open,setOpen]=React.useState(false)
+  const [loading,setLoading]=React.useState(false)
 console.log(open);
   React.useEffect(()=>{
+    setLoading(true)
     axios.get(`/api/pet/all-pet`,{headers:{token:props.user.user}})
     .then(res=>{
       console.log(res);
       setData(res.data.result)
+      axios.get(`/api/user/single-user`,{headers:{token:props.user.user}})
+      .then(res=>{
+        console.log(res)
+        props.storeUserInfo(res.data.result)
+        setLoading(false)
+      })
+      .catch(err=>{
+        console.log(err)
+        setLoading(false)
+      })
     })
     .catch(err=>{
       console.log(err);
+      setLoading(false)
     })
 
   },[])
 
+    const handleAdoption = ()=>{
+      setLoading(true)
+      axios.post(`/api/adoption/create`,{petId:selectedData._id},{headers:{token:props.user.user}})
+      .then(res=>{
+        console.log(res)
+        setLoading(false)
+        setOpen(false)
+        props.history.push("/recieved")
+      })
+      .catch(err=>{
+        console.log(err)
+        setLoading(false)
+        setOpen(false)
+      })
+    }
+
 
     return (
         <div className="landing-section">
-          
+          <SimpleBackdrop open={loading} />
               <Modal 
               open={open}
               setOpen={setOpen}
@@ -70,7 +102,7 @@ console.log(open);
                 <p><b>Breed</b></p>
                 <p>{selectedData.breed}</p>
                 </div>
-                <Button variant="contained">Request Adoption</Button>
+                {selectedData.owner!==props.user.userInfo._id?<Button onClick={()=>handleAdoption()} variant="contained">Request Adoption</Button>:null}
               </section>}
               />
           
@@ -121,4 +153,10 @@ const mapStateToProps =({EventUser})=>{
   }
 }
 
-export default connect(mapStateToProps)(Landing)
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    storeUserInfo:(user)=>dispatch(storeUserInfo(user))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Landing)

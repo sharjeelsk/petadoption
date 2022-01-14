@@ -1,7 +1,13 @@
 import React from 'react'
 import "./PetRequests.scss"
 import Button from '@mui/material/Button'
-function petrequests() {
+
+function Petrequests() {
+
+    React.useEffect(()=>{
+
+    },[])
+
     return (
         <div className="adoption-request">
             <h1>Adoption Requests</h1>
@@ -150,4 +156,4 @@ function petrequests() {
     )
 }
 
-export default petrequests
+export default Petrequests
